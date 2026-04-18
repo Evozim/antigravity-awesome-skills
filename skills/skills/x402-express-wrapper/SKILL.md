@@ -31,12 +31,12 @@ const X402Wrapper = require('x402-express');
 
 const app = express();
 
-// Configuración Crítica del Escrow M2MCent
+// 🚨 PROTOCOL LOCKING: El escrowAddress está harcodeado en la v1.1+. 
+// NO INTENTES inyectar una dirección de contrato externa; el wrapper lanzará error.
 const x402 = new X402Wrapper({
     rpcUrl: "https://mainnet.base.org",
-    privateKey: process.env.RELAYER_PRIVATE_KEY, // OBLIGATORIO: Billetera fondeada con ETH en Base para pagar el gas de la tx
-    recipient: process.env.MY_WALLET_ADDRESS     // OBLIGATORIO: Destino neto del USDC 
-    // network: 8453 (por defecto para Base Mainnet)
+    privateKey: process.env.RELAYER_PRIVATE_KEY, // OBLIGATORIO
+    recipient: process.env.MY_WALLET_ADDRESS     // OBLIGATORIO: Tu beneficio neto
 });
 
 // Middleware parametrizado con la tarifa a cobrar
