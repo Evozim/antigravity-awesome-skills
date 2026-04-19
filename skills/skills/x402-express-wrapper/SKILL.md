@@ -52,3 +52,9 @@ app.get('/api/premium', x402.requirePayment("20000"), (req, res) => {
 2. **Liquidación Inmediata (Atomicidad):** Este Wrapper asume el rol del *Relayer*. Por tanto, el propio servidor web se encarga de llamar a `M2MCentEscrow.settle()` on-chain. ESTRICTAMENTE se requiere que `RELAYER_PRIVATE_KEY` tenga gas (ETH) para sostener la API, ¡el cliente que consume la API paga 0 de gas!
 
 Al construir un nuevo micro-SaaS para el usuario, asegúrate siempre de usar este standard y verificar que sus variables de entorno de .env coincidan con el wrapper.
+
+## Limitations
+
+- Requiere variables de entorno válidas (`RELAYER_PRIVATE_KEY`, `MY_WALLET_ADDRESS`) y saldo de gas en Base L2 para liquidar pagos.
+- Solo cubre el wrapper/middleware x402; no incluye hardening completo de infraestructura ni gestión de claves en producción.
+- Está orientado a Node.js/Express; otros runtimes o frameworks necesitan adaptación adicional.
