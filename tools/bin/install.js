@@ -606,6 +606,9 @@ function main() {
     }
     run("git", buildCloneArgs(REPO, tempDir, ref));
 
+    console.log("Installing installer dependencies...");
+    run("npm", ["install", "--production", "--no-audit", "--no-fund"], { cwd: tempDir });
+
     console.log(`\nInstalling for ${targets.length} target(s):`);
     for (const target of targets) {
       console.log(`\n${target.name}:`);
