@@ -8,7 +8,7 @@ const { resolveSafeRealPath } = require("../lib/symlink-safety");
 const { listSkillIdsRecursive, readSkill } = require("../lib/skill-utils");
 const packageMetadata = require("../../package.json");
 
-const REPO = "https://github.com/sickn33/antigravity-awesome-skills.git";
+const REPO = "https://github.com/Evozim/antigravity-awesome-skills.git";
 const HOME = process.env.HOME || process.env.USERPROFILE || "";
 const INSTALL_MANIFEST_FILE = ".antigravity-install-manifest.json";
 const DEFAULT_RELEASE_REF = packageMetadata.version ? `v${packageMetadata.version}` : null;
